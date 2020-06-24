@@ -63,27 +63,22 @@ class SubmenusController extends Controller
     }
 
     public function setDadosRedirecionamento(Request $request){
-//        dd($request->all);
-//        dd($request->all());
-//        dd($request->menu_id);
-//        dd($request->get('menu_id'));
+
         $dados = DadosRedirecionamento::whereMenuId($request->menu_id)->first();
-//        dd($dados);
+
         if (isset($dados)) {
             $dados->update([
                 'email' => $request->email,
                 'telefone' => $request->telefone,
             ]);
         } else {
-//            dd($request->all());
+
             DadosRedirecionamento::create([
                 'email' => $request->email,
                 'menu_id' => $request->menu_id,
                 'telefone' => $request->telefone,
             ]);
         }
-//        dd($dados);
-//        dd($request->all());
     }
 
 }

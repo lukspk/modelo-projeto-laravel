@@ -12,18 +12,11 @@
 margin-bottom: auto;">
             <h3 class="card-title ">Cadastro De Menus</h3>
             <div class="card-tools">
-                <!-- Buttons, labels, and many other things can be placed here! -->
-                <!-- Here is a label for example -->
-                {{--                <span class="badge badge-primary">Label</span>--}}
 
-                {{--                <input type="button" class="btn btn-default btn-sm" value="Cadastrar">--}}
             </div>
 
         </div>
 
-{{--{{dd(request()->route()->parameters['menu'])}}--}}
-        <!-- /.card-tools -->
-        <!-- /.card-header -->
         <div class="card-body">
             @if (isset($menu))
                 {!! Form::model($menu,['route'=> ['restrito.menus.submenus.update',$menu->id],'class'=>'form','method'=>'put', 'enctype' => 'multipart/form-data', 'id' => 'fileForm']) !!}
@@ -42,10 +35,7 @@ margin-bottom: auto;">
                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         Voltar
                     </a>
-{{--                    <a href="{{route('menu.primario.create')}}" class="btn btn-sm btn-success">--}}
-{{--                        <i class="fa fa-plus" aria-hidden="true"></i>--}}
-{{--                        Cadastrar--}}
-{{--                    </a>--}}
+
                     {!! Form::button('<i class="far fa-save"></i> &nbsp; Salvar', array('type' => 'submit', 'class' => 'btn btn-sm btn-primary')) !!}
                 </div>
         <!-- /.card-footer -->
@@ -60,5 +50,4 @@ margin-bottom: auto;">
         @stop
 
         @section('js')
-{{--            <script> console.log('Hi!'); </script>--}}
 @stop

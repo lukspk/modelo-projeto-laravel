@@ -75,13 +75,7 @@ margin-bottom: auto;">
 
 
         </div>
-        <!-- /.card-body -->
-{{--        <div class="card-footer">--}}
-{{--            The footer of the card--}}
-{{--        </div>--}}
-        <!-- /.card-footer -->
     </div>
-    <!-- /.card -->
 
         <div class="modal" tabindex="-1" role="dialog" id="myModal">
             <div class="modal-dialog" role="document">

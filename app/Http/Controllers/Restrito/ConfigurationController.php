@@ -19,7 +19,7 @@ class ConfigurationController extends Controller
 
     public function update(Request $request, $id)
     {
-//        $this->validaDados($request);
+
         $configuration = Configuration::findOrFail($id);
         $configuration->update($request->except('logo', 'mail_password'));
 
@@ -31,10 +31,6 @@ class ConfigurationController extends Controller
             $configuration->save();
         }
 
-//        if ($request->mail_password) {
-//            $configuration->mail_password = $request->mail_password;
-//            $configuration->save();
-//        }
 
         return redirect()->back()->with(['mensagem' => 'Salvo com sucesso!']);
 

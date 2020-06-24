@@ -45,7 +45,7 @@ class UserController extends Controller
             $request['password'] = Hash::make($request['password']);
 
             $user = User::create($request);
-//        dd()
+
             $configuration = Configuration::create([
                 'url_acesso' => Str::slug($user->name, '-'),
                 'user_id' => $user->id
@@ -58,14 +58,11 @@ class UserController extends Controller
             ]);
         } catch (\Exception $ex) {
             DB::rollBack();
-//            dd($ex->getMessage());
             return redirect()->back()->with([
                 'message' => 'Erro ao Cadastrar Usuário',
                 'type' => 'error'
             ])->withInput();
         }
-
-//        dd($configuration);
 
     }
 
@@ -91,11 +88,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        dd();
-//        $request = ($request->except(['password']));
-//        if ($request->filled('password')) {
-//            $request['password'] = $r;
-//        }
+
         $user = User::find($id);
         $request = $request->filled('password') ? $request->all() : $request->except(['password']);
         $user->update($request);

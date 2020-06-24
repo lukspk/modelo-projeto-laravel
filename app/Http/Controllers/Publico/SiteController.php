@@ -17,7 +17,7 @@ class SiteController extends Controller
         $menus = $user->menus()->whereHas('ordem',function ($query) {
             $query->whereName('primario');
         })->get();
-//        dd($user->menus);
+
         if (!isset($configuration)) {
             abort(404);
         }
@@ -29,7 +29,6 @@ class SiteController extends Controller
 
     public function menusSecundarios($url, $menuName)
     {
-//        dd($menuName);
         $configuration = Configuration::whereUrlAcesso($url)->first();
         $user = $configuration->user;
         $menuPrincipal = $user->menus()->whereName($menuName)->first();
