@@ -61,7 +61,7 @@
             <div class="col-7">
                 <div class="icheck-primary">
                     <input type="checkbox" name="remember" id="remember">
-                    <label for="remember">{{ __('adminlte::adminlte.remember_me') }}</label>
+{{--                    <label for="remember">{{ __('adminlte::adminlte.remember_me') }}</label>--}}
                 </div>
             </div>
             <div class="col-5">
