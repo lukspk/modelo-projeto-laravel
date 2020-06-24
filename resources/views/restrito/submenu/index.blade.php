@@ -103,6 +103,17 @@ margin-bottom: auto;">
                             {{Form::label('telefone','Telefone',null)}}
                             {{Form::text('telefone',null, ['class' => 'form-control', 'onkeydown' => "mascara( this )", 'onkeyup'=> "mascara( this )"])}}
                         </div>
+
+                        <div class="form-group">
+                            {{Form::label('tag_head_google','Pixel HEAD Google ADS',null)}}
+                            {{Form::text('tag_head_google',null, ['class' => 'form-control'])}}
+                        </div>
+
+                        <div class="form-group">
+                            {{Form::label('tag_pixel_google','Pixel BODY Google ADS',null)}}
+                            {{Form::text('tag_pixel_google',null, ['class' => 'form-control'])}}
+                        </div>
+
                         {{Form::hidden('menu_id',null, ['class' => 'form-control'])}}
                     </div>
                     <div class="modal-footer">
