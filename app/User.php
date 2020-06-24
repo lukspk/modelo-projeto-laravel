@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\Menu;
+use App\Models\Perfil;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -15,9 +17,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function perfil()
+    {
+        return $this->hasOne(Perfil::class,'id','perfil_id');
+    }
+
+    public function menus()
+    {
+        return $this->hasMany(Menu::class,'user_id','id');
+    }
 }
