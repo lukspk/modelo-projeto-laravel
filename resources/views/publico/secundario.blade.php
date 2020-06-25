@@ -21,7 +21,7 @@
 {{--                    {{dd($_SERVER['HTTP_USER_AGENT'])}}--}}
 {{--                    {{\Symfony\Component\Console\Helper\Helper::str_contains}}--}}
                         @if (\Illuminate\Support\Str::contains($_SERVER['HTTP_USER_AGENT'], ["iPhone","iPad","Android","webOS","BlackBerry","iPod","Symbian","IsGeneric"]))
-                            <a href="https://wa.me/55{{str_replace(['(',')',' ','-'],'',$menu->redirecionamento->telefone)}}">
+                            <a href="https://wa.me/55{{isset($menu->redirecionamento->telefone) ? str_replace(['(',')',' ','-'],'',$menu->redirecionamento->telefone) : ''}}">
                         @else
                             <a href="{{route('publico.site.menus.secundarios.formulario.email',[request()->route()->parameters['url'],$menu->name])}}">
                         @endif
