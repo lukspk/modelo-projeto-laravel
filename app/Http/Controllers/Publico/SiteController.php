@@ -7,6 +7,7 @@ use App\Models\Configuration;
 use App\Models\Menu;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class SiteController extends Controller
 {
@@ -51,5 +52,31 @@ class SiteController extends Controller
             'configuration' => $configuration,
             'menus' => $menus
         ]);
+    }
+
+    public function sendMail($url, $menu, Request $request)
+    {
+        $menu = Menu::whereName($menu)->first();
+
+        if (isset($menu) && isset($menu->redirecionamento)) {
+            $redirecionamento = $menu->redirecionamento;
+            if (empty($redirecionamento->email)) {
+                return redirect()->back()->with([
+                    'message' => 'Email Não Cadastrado para Escritório',
+                    'type' => 'error'
+                ]);
+            }
+            Mail::to($redirecionamento->email)->send(new \App\Mail\Email($request->assunto,$request->mensagem));
+
+            return redirect()->back()->with([
+                'message' => 'E-mail enviado com Sucesso',
+                'type' => 'success'
+            ]);
+        } else {
+            return redirect()->back()->with([
+                'message' => 'Tópico não possui redirecionamento de contato',
+                'type' => 'error'
+            ]);
+        }
     }
 }

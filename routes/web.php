@@ -13,13 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//Route::get('/restrito',)
-//Route::get('/login',)
-//Route::get('/{user}',)
-
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
@@ -47,6 +40,7 @@ Route::group(['namespace' => 'Publico','as' => 'publico.'], function () {
     Route::get('/{url}','SiteController@index')->name('site.index');
     Route::get('/{url}/{menu}','SiteController@menusSecundarios')->name('site.menus.secundarios');
     Route::get('/{url}/{menu}/email','SiteController@formularioEmail')->name('site.menus.secundarios.formulario.email');
+    Route::post('/{url}/{menu}/send-mail','SiteController@sendMail')->name('site.menus.secundarios.send.email');
 });
 //Route::get('/restrito', function() {
 //    return view('welcome');

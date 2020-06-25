@@ -15,11 +15,13 @@
 {{--            </div>--}}
             <div class="col-md-12 text-center pb-2 pt-2" style="justify-content: center;display: flex;">
                 <div class="alert alert-info text-left mt-2" style=" width: 60%">
+                    {!! Form::open(['route'=>['publico.site.menus.secundarios.send.email',[request()->route()->parameters['url'],request()->route()->parameters['menu']]],'class'=>'form']) !!}
                     {{Form::label('assunto', 'Assunto')}}
                     {{Form::text('assunto', null, ['class' => 'form-control'])}}
                     {{Form::label('mensagem', 'Mensagem',['class' => 'mt-3'])}}
-                    {{Form::textArea('assunto', null, ['class' => 'form-control'])}}
+                    {{Form::textArea('mensagem', null, ['class' => 'form-control'])}}
                     <div class="col-md-12 text-right mt-3"> <input type="submit" class="btn btn-info"></div>
+                    {!! Form::close() !!}
                 </div>
             </div>
 
