@@ -16,9 +16,9 @@
 <div class="container ">
 
     <div class="row">
-        <div class="col-md-12 text-center mt-3">
+        <div class="col-md-12 text-center mt-3 mb-2">
             @if (isset($configuration->logo_url))
-                <img src="{{$configuration->logo_url}}" width="40%">
+                <img src="{{$configuration->logo_url}}" width="40%" style="max-height: 300px">
             @endif
         </div>
 
