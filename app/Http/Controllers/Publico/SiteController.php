@@ -14,6 +14,10 @@ class SiteController extends Controller
     public function index($url)
     {
         $configuration = Configuration::whereUrlAcesso($url)->first();
+
+        if (!isset($configuration)) {
+            abort(404);
+        }
         $user = $configuration->user;
         $menus = $user->menus()->whereHas('ordem',function ($query) {
             $query->whereName('primario');
