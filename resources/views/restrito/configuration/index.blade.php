@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header " style="margin-top: auto;
 margin-bottom: auto;">
-            <h3 class="card-title ">Configurações</h3>
+            <h3 class="card-title ">Configurações </h3>
 {{--            {{dd($configuracao)}}--}}
 {{--            <div class="card-tools">--}}
 {{--                <!-- Buttons, labels, and many other things can be placed here! -->--}}
