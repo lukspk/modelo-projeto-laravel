@@ -30,7 +30,7 @@ class Email extends Mailable
     public function build()
     {
         return $this->subject("Notificação - {$this->assunto}")
-            ->from('contato@maisadv.com.br','Sistema Mais Adv')
+            ->from('email@email.com','Tittle')
             ->view('publico.email.notificacao')->with([
                 'assunto' => $this->assunto,
                 'texto' => $this->texto
